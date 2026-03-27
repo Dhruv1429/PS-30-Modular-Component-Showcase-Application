@@ -1,39 +1,37 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, ToggleLeft, Type, Box, Layers } from 'lucide-react';
 import './Sidebar.css';
-
-const SidebarItem = ({ to, icon: Icon, label }) => (
-  <NavLink 
-    to={to} 
-    className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
-  >
-    <Icon size={18} className="sidebar-icon" />
-    <span>{label}</span>
-  </NavLink>
-);
 
 const Sidebar = () => {
   return (
     <aside className="sidebar">
-      <div className="sidebar-header">
-        <div className="logo-container">
-          <Layers size={24} color="#3b82f6" />
-          <h3>PS-30<span className="text-highlight">.ui</span></h3>
-        </div>
-        <p className="version-tag">v2.4.0 • Enterprise</p>
+      <div className="sidebar-header logo-container">
+        <h3>PS-30 UI</h3>
+        <span style={{ fontSize: '0.75rem', color: '#94a3b8', display: 'block', marginTop: '4px' }}>v2.4.0 • Enterprise</span>
+      </div>
+      
+      <div className="sidebar-section">
+        <div style={{ fontSize: '0.75rem', fontWeight: 'bold', color: '#94a3b8', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Overview</div>
+        <NavLink to="/" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"} end>
+          🏠 Introduction
+        </NavLink>
       </div>
 
       <div className="sidebar-section">
-        <h4>Overview</h4>
-        <SidebarItem to="/" icon={LayoutDashboard} label="Introduction" />
-      </div>
-
-      <div className="sidebar-section">
-        <h4>Components</h4>
-        <SidebarItem to="/buttons" icon={ToggleLeft} label="Buttons" />
-        <SidebarItem to="/cards" icon={Box} label="Cards" />
-        <SidebarItem to="/inputs" icon={Type} label="Inputs" />
+        <div style={{ fontSize: '0.75rem', fontWeight: 'bold', color: '#94a3b8', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '16px' }}>Components</div>
+        <NavLink to="/buttons" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"}>
+          🔘 Buttons
+        </NavLink>
+        <NavLink to="/cards" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"}>
+          📦 Cards
+        </NavLink>
+        <NavLink to="/inputs" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"}>
+          ⌨️ Inputs
+        </NavLink>
+        {/* 👇 The new Table link! 👇 */}
+        <NavLink to="/tables" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"}>
+          📊 Data Tables
+        </NavLink>
       </div>
     </aside>
   );

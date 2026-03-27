@@ -59,3 +59,26 @@
   transform: none;
   box-shadow: none;
 }
+/* --- NEW STYLES FOR UPGRADE --- */
+
+/* Ghost Button (Transparent with hover effect) */
+.btn-ghost { 
+  background-color: transparent; 
+  color: #2563eb; 
+}
+.btn-ghost:hover { 
+  background-color: #eff6ff; 
+}
+
+/* Link Button (Looks like text) */
+.btn-link { 
+  background-color: transparent; 
+  color: #2563eb; 
+  padding: 6px 12px;
+  box-shadow: none;
+}
+.btn-link:hover { 
+  text-decoration: underline; 
+  background-color: transparent; 
+  transform: none;
+}

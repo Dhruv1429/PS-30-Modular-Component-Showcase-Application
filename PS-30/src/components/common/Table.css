@@ -1,0 +1,47 @@
+/* src/components/common/Table.css */
+.table-container {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.ps-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ps-table th {
+  background-color: #f8fafc;
+  padding: 16px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ps-table td {
+  padding: 16px 24px;
+  font-size: 0.95rem;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+}
+
+.ps-table tr:hover td {
+  background-color: #f8fafc;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.status-active { background: #dcfce7; color: #166534; }
+.status-error { background: #fee2e2; color: #991b1b; }

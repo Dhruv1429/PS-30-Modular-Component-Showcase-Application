@@ -1,76 +1,50 @@
 import React, { useState, useCallback } from 'react';
-// Go up one level (../), then into components/common/
 import Button from '../components/common/Button'; 
 import PreviewCard from '../components/common/PreviewCard';
 
 const ButtonDemo = () => {
-  // Rubric: Predictable state updates with immutability 
-  // Rubric: Proper async handling with loading, error states
-  const [asyncState, setAsyncState] = useState({
-    status: 'idle', // 'idle' | 'loading' | 'success' | 'error'
-    message: ''
-  });
+  const [loading, setLoading] = useState(false);
 
-  // Rubric: Memoization and render optimization applied
-  // useCallback prevents this function from being recreated on every render
-  const handleAsyncAction = useCallback(() => {
-    setAsyncState({ status: 'loading', message: 'Processing request...' });
-
-    // Simulating a real network request
-    setTimeout(() => {
-      // Randomly succeed or fail to demonstrate conditional rendering
-      const isSuccess = Math.random() > 0.3; 
-      
-      if (isSuccess) {
-        setAsyncState({ status: 'success', message: 'Data saved successfully!' });
-      } else {
-        setAsyncState({ status: 'error', message: 'Network error. Try again.' });
-      }
-
-      // Reset state back to idle after 3 seconds
-      setTimeout(() => setAsyncState({ status: 'idle', message: '' }), 3000);
-    }, 1500);
+  const handleAsync = useCallback(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000);
   }, []);
 
   return (
-    <div>
-      <h2 style={{ fontSize: '2rem', marginBottom: '10px' }}>Button</h2>
-      <p style={{ color: '#64748b', marginBottom: '40px' }}>
-        Triggers an action or event, such as submitting a form or opening a dialog.
+    <div style={{ animation: 'fadeIn 0.4s ease-in-out' }}>
+      <h2 style={{ fontSize: '2.5rem', marginBottom: '10px', color: '#0f172a' }}>Buttons</h2>
+      <p style={{ color: '#64748b', marginBottom: '40px', fontSize: '1.1rem' }}>
+        A comprehensive suite of button components for triggering actions.
       </p>
 
-      <PreviewCard 
-        title="Variants & Hierarchy" 
-        description="Use different button styles to indicate hierarchy and intent."
-      >
-        <Button variant="primary">Primary Action</Button>
-        <Button variant="secondary">Secondary Action</Button>
-        <Button variant="danger">Destructive</Button>
+      <PreviewCard title="Button Variants (Kinds)">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', alignItems: 'center' }}>
+          <strong style={{ color: '#64748b', fontSize: '0.9rem' }}>Primary</strong>
+          <Button variant="primary">Primary</Button>
+          <Button variant="primary">Submit</Button>
+          <Button variant="primary" isDisabled>Disabled</Button>
+
+          <strong style={{ color: '#64748b', fontSize: '0.9rem' }}>Secondary</strong>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="secondary">Cancel</Button>
+          <Button variant="secondary" isDisabled>Disabled</Button>
+
+          <strong style={{ color: '#64748b', fontSize: '0.9rem' }}>Destructive</strong>
+          <Button variant="danger">Destructive</Button>
+          <Button variant="danger">Delete</Button>
+          <Button variant="danger" isDisabled>Disabled</Button>
+        </div>
       </PreviewCard>
 
-      <PreviewCard 
-        title="Async State Handling" 
-        description="Demonstrates controlled state, async side-effects, and conditional rendering based on API response."
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'flex-start' }}>
-          <Button 
-            variant={asyncState.status === 'error' ? 'danger' : 'primary'} 
-            onClick={handleAsyncAction} 
-            isDisabled={asyncState.status === 'loading'}
-          >
-            {asyncState.status === 'loading' ? 'Processing...' : 'Simulate API Call'}
+      <PreviewCard title="Interactive States & Sizes">
+        <div style={{ display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Button variant="primary" onClick={handleAsync} isDisabled={loading}>
+            {loading ? 'Processing...' : 'Simulate API Call'}
           </Button>
-          
-          {/* Rubric: Conditional rendering for different component states */}
-          {asyncState.message && (
-            <span style={{ 
-              fontSize: '0.875rem', 
-              color: asyncState.status === 'error' ? '#ef4444' : '#10b981',
-              fontWeight: '500'
-            }}>
-              {asyncState.message}
-            </span>
-          )}
+          <div style={{ width: '1px', height: '40px', background: '#e2e8f0', margin: '0 10px' }}></div>
+          <Button variant="primary" size="small">Small</Button>
+          <Button variant="primary" size="medium">Medium</Button>
+          <Button variant="primary" size="large">Large</Button>
         </div>
       </PreviewCard>
     </div>

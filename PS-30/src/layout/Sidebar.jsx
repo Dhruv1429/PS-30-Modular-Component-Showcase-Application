@@ -28,7 +28,6 @@ const Sidebar = () => {
         <NavLink to="/inputs" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"}>
           ⌨️ Inputs
         </NavLink>
-        {/* 👇 The new Table link! 👇 */}
         <NavLink to="/tables" className={({isActive}) => isActive ? "sidebar-item active" : "sidebar-item"}>
           📊 Data Tables
         </NavLink>

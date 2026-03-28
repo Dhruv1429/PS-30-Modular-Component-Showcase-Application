@@ -1,84 +1,15 @@
-/* Base Styles */
-.btn {
-  border: 1px solid transparent;
-  border-radius: 8px; /* Softer corners */
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Subtle shadow */
-}
-
-.btn:active {
-  transform: translateY(1px); /* Click effect */
-}
-
-/* Modern Blue (Primary) */
-.btn-primary { 
-  background-color: #2563eb; 
-  color: white; 
-}
-.btn-primary:hover { 
-  background-color: #1d4ed8; 
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2); 
-}
-
-/* Elegant Gray (Secondary) */
-.btn-secondary { 
-  background-color: white; 
-  color: #0f172a; 
-  border: 1px solid #cbd5e1;
-}
-.btn-secondary:hover { 
-  background-color: #f8fafc; 
-  border-color: #94a3b8;
-}
-
-/* Soft Red (Danger) */
-.btn-danger { 
-  background-color: #ef4444; 
-  color: white; 
-}
-.btn-danger:hover { 
-  background-color: #dc2626; 
-  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
-}
-
-/* Sizes */
+.btn { border: none; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn-small { padding: 6px 12px; font-size: 0.85rem; }
-.btn-medium { padding: 10px 24px; font-size: 0.95rem; }
-.btn-large { padding: 14px 32px; font-size: 1.1rem; }
-
-/* Disabled State */
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-/* --- NEW STYLES FOR UPGRADE --- */
-
-/* Ghost Button (Transparent with hover effect) */
-.btn-ghost { 
-  background-color: transparent; 
-  color: #2563eb; 
-}
-.btn-ghost:hover { 
-  background-color: #eff6ff; 
-}
-
-/* Link Button (Looks like text) */
-.btn-link { 
-  background-color: transparent; 
-  color: #2563eb; 
-  padding: 6px 12px;
-  box-shadow: none;
-}
-.btn-link:hover { 
-  text-decoration: underline; 
-  background-color: transparent; 
-  transform: none;
-}
+.btn-medium { padding: 10px 16px; font-size: 0.95rem; }
+.btn-large { padding: 12px 24px; font-size: 1.1rem; }
+.btn-primary { background-color: #2563eb; color: white; }
+.btn-primary:hover:not(:disabled) { background-color: #1d4ed8; }
+.btn-secondary { background-color: white; color: #0f172a; border: 1px solid #cbd5e1; }
+.btn-secondary:hover:not(:disabled) { background-color: #f8fafc; }
+.btn-danger { background-color: #ef4444; color: white; }
+.btn-danger:hover:not(:disabled) { background-color: #b91c1c; }
+.btn-ghost { background-color: transparent; color: #2563eb; }
+.btn-ghost:hover:not(:disabled) { background-color: #eff6ff; }
+.btn-link { background-color: transparent; color: #2563eb; padding: 6px 12px; box-shadow: none; }
+.btn-link:hover:not(:disabled) { text-decoration: underline; background-color: transparent; }

@@ -1,17 +1,14 @@
-// src/pages/UserDetails.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Button from '../components/common/Button';
 import Card from '../components/common/Card';
 
 const UserDetails = () => {
-  // Rubric: Dynamic Routing parameter extraction
   const { id } = useParams(); 
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Fetching specific dynamic data based on the URL parameter
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then(res => res.json())
       .then(data => setUser(data));

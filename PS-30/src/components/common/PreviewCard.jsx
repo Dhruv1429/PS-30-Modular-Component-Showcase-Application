@@ -5,14 +5,11 @@ const PreviewCard = ({ title, description, children }) => {
   return (
     <div className="preview-card">
       <div className="preview-header">
-        <h4>{title}</h4>
+        <h3>{title}</h3>
         {description && <p>{description}</p>}
       </div>
-      <div className="preview-body">
-        {/* This is where your component lives */}
-        <div className="component-stage">
-          {children}
-        </div>
+      <div className="preview-content">
+        {children}
       </div>
     </div>
   );

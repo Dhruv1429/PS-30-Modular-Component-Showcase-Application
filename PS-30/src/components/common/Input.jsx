@@ -1,33 +1,21 @@
 import React, { memo } from 'react';
 import './Input.css';
 
-const Input = ({
-  label,
-  id,
-  error,
-  helperText,
-  type = 'text',
-  value,
-  onChange,
-  disabled = false,
-  ...props
-}) => {
+const Input = ({ label, name, type = 'text', value, onChange, placeholder, error, helperText }) => {
   return (
-    <div className={`input-wrapper ${error ? 'has-error' : ''}`}>
-      {label && <label htmlFor={id} className="input-label">{label}</label>}
+    <div className="input-wrapper">
+      {label && <label className="input-label" htmlFor={name}>{label}</label>}
       <input
-        id={id}
+        id={name}
+        name={name}
         type={type}
-        className="input-field"
         value={value}
         onChange={onChange}
-        disabled={disabled}
-        aria-invalid={!!error} // Rubric: Accessibility & UI Design
-        aria-describedby={helperText ? `${id}-helper` : undefined}
-        {...props}
+        placeholder={placeholder}
+        className={`input-field ${error ? 'input-error' : ''}`}
       />
       {helperText && (
-        <span id={`${id}-helper`} className="input-helper">
+        <span className={`input-helper ${error ? 'text-error' : 'text-muted'}`}>
           {helperText}
         </span>
       )}
@@ -35,5 +23,4 @@ const Input = ({
   );
 };
 
-// Rubric: Memoization applied
 export default memo(Input);

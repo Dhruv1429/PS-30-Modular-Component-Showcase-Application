@@ -1,64 +1,11 @@
-/* src/components/common/StatCard.css */
-.stat-card {
-  border-radius: 6px;
-  padding: 20px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 140px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.stat-card:hover {
-  transform: translateY(-2px);
-}
-
-/* CoreUI Brand Colors */
+.stat-card { border-radius: 6px; padding: 20px; color: white; position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 140px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease-in-out; }
+.stat-card:hover { transform: translateY(-2px); }
 .stat-card-purple { background: linear-gradient(45deg, #321fdb 0%, #321fdb 100%); }
 .stat-card-blue { background: linear-gradient(45deg, #3399ff 0%, #3399ff 100%); }
 .stat-card-yellow { background: linear-gradient(45deg, #f9b115 0%, #f9b115 100%); }
 .stat-card-red { background: linear-gradient(45deg, #e55353 0%, #e55353 100%); }
-
-.stat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  z-index: 2;
-}
-
-.stat-value {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.stat-percentage {
-  font-size: 0.85rem;
-  font-weight: 400;
-  opacity: 0.9;
-}
-
-.stat-title {
-  font-size: 0.95rem;
-  margin-top: 4px;
-  opacity: 0.9;
-  z-index: 2;
-}
-
-/* The fake chart line at the bottom to match the screenshot */
-.stat-chart-decoration {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  opacity: 0.3;
-  background-image: radial-gradient(circle at 10px 10px, rgba(255,255,255,0.4) 2px, transparent 0);
-  background-size: 20px 20px;
-}
+.stat-header { display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; }
+.stat-value { font-size: 1.5rem; font-weight: 600; margin: 0; display: flex; align-items: baseline; gap: 8px; }
+.stat-percentage { font-size: 0.85rem; font-weight: 400; opacity: 0.9; }
+.stat-title { font-size: 0.95rem; margin-top: 4px; opacity: 0.9; z-index: 2; }
+.stat-chart-decoration { position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; opacity: 0.3; background-image: radial-gradient(circle at 10px 10px, rgba(255,255,255,0.4) 2px, transparent 0); background-size: 20px 20px; }
